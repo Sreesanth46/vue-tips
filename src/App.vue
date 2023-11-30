@@ -1,30 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { reactive } from "vue";
+import AddressForm from "./components/AddressForm.vue";
+
+const address = reactive({
+    firstName: "",
+    lastName: "",
+    country: "",
+    city: "",
+    postalCode: "",
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
+    <div>
+        <AddressForm
+            v-model:first-name="address.firstName"
+            v-model:last-name="address.lastName"
+            v-model:country="address.country"
+            v-model:city="address.city"
+            v-model:postal-code="address.postalCode"
+        />
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+        Name: {{ address.firstName + " " + address.lastName }}
+        <br />
+        Country: {{ address.country }}
+        <br />
+        City: {{ address.city }}
+        <br />
+        Postal code: {{ address.postalCode }}
+    </div>
+</template>
