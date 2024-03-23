@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
+    "@vueuse/motion": "^2.1.0",
     "gsap": "^3.12.5",
     "vue": "^3.3.8",
     "vue-router": "^4.3.0"
