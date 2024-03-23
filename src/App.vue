@@ -1,32 +1,12 @@
 <script setup>
-import { reactive } from "vue";
-import AddressForm from "./components/AddressForm.vue";
-
-const address = reactive({
-    firstName: "",
-    lastName: "",
-    country: "",
-    city: "",
-    postalCode: "",
-});
+import Header from "~/components/Header.vue";
 </script>
 
 <template>
-    <div>
-        <AddressForm
-            v-model:first-name="address.firstName"
-            v-model:last-name="address.lastName"
-            v-model:country="address.country"
-            v-model:city="address.city"
-            v-model:postal-code="address.postalCode"
-        />
-
-        Name: {{ address.firstName + " " + address.lastName }}
-        <br />
-        Country: {{ address.country }}
-        <br />
-        City: {{ address.city }}
-        <br />
-        Postal code: {{ address.postalCode }}
+  <main class="h-screen flex flex-col">
+    <Header/>
+    <div class="p-4 flex-auto overflow-auto">
+      <router-view></router-view>
     </div>
+  </main>
 </template>
